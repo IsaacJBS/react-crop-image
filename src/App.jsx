@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import "./App.css";
 
 import Cropper from "react-easy-crop";
 import Button from "@mui/material/Button";
 
 import { generateDownload } from "./utils/cropImage";
+import getCroppedImg from "./utils/cropImage";
 
 export default function App() {
   const inputRef = React.useRef();
@@ -15,6 +16,7 @@ export default function App() {
   const [croppedArea, setCroppedArea] = React.useState(null);
   const [crop, setCrop] = React.useState({ x: 0, y: 0 });
   const [zoom, setZoom] = React.useState(1);
+  const [croppedImg, setCroppedImg] = React.useState(null);
 
   const onCropComplete = (croppedAreaPercentage, croppedAreaPixels) => {
     setCroppedArea(croppedAreaPixels);
@@ -30,9 +32,13 @@ export default function App() {
     }
   };
 
-  const onDownload = () => {
-    console.log(generateDownload(image, croppedArea));
-    generateDownload(image, croppedArea);
+  const onDownload = async () => {
+    const result = await getCroppedImg(image, croppedArea);
+    setCroppedImg(result);
+  };
+
+  const handle = () => {
+    generateDownload(croppedImg);
   };
 
   return (
@@ -55,6 +61,8 @@ export default function App() {
         ) : null}
       </div>
 
+      <img className="image" src={croppedImg} alt="" />
+
       <div className="container-buttons">
         <input
           type="file"
@@ -69,9 +77,12 @@ export default function App() {
           onClick={triggerFileSelectPopup}
           style={{ marginRight: "10px" }}
         >
-          Choose
+          Escolher
         </Button>
         <Button variant="contained" color="secondary" onClick={onDownload}>
+          Aplicar
+        </Button>
+        <Button variant="contained" color="secondary" onClick={handle}>
           Download
         </Button>
       </div>
