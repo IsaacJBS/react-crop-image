@@ -80,10 +80,12 @@ export default function App() {
         ) : null}
       </div>
 
-      <div ref={printRef} className="container-preview">
-        <img className="user-image" src={croppedImg} alt="" />
-        <img className="user-filter" src={filter} alt="" />
-      </div>
+      {croppedImg && (
+        <div ref={printRef} className="container-preview">
+          <img className="user-image" src={croppedImg} alt="" />
+          <img className="user-filter" src={filter} alt="" />
+        </div>
+      )}
 
       <div className="container-buttons">
         <input
@@ -93,24 +95,15 @@ export default function App() {
           onChange={onSelectFile}
           style={{ display: "none" }}
         />
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={triggerFileSelectPopup}
-          style={{ marginRight: "10px" }}
-        >
+        <button className="button-black" onClick={triggerFileSelectPopup}>
           Escolher
-        </Button>
-        <Button variant="contained" color="secondary" onClick={onDownload}>
+        </button>
+        <button className="button-yellow" onClick={onDownload}>
           Aplicar
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={handleDownloadImage}
-        >
+        </button>
+        <button className="button-green" onClick={handleDownloadImage}>
           Download
-        </Button>
+        </button>
       </div>
     </div>
   );
