@@ -4,6 +4,8 @@ import "./App.css";
 import html2canvas from "html2canvas";
 import Cropper from "react-easy-crop";
 
+import CustomModal from "./components/CustomModal";
+
 import getCroppedImg from "./utils/cropImage";
 
 import filter from "./assets/logo.png";
@@ -18,6 +20,16 @@ export default function App() {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [croppedImg, setCroppedImg] = useState(null);
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   const onCropComplete = (croppedAreaPercentage, croppedAreaPixels) => {
     setCroppedArea(croppedAreaPixels);
@@ -61,8 +73,8 @@ export default function App() {
 
   return (
     <div className="container">
-      <div className="container-cropper">
-        {image ? (
+      {image && (
+        <div className="container-cropper">
           <>
             <div className="cropper">
               <Cropper
@@ -76,8 +88,8 @@ export default function App() {
               />
             </div>
           </>
-        ) : null}
-      </div>
+        </div>
+      )}
 
       {croppedImg && (
         <div ref={printRef} className="container-preview">
@@ -85,6 +97,14 @@ export default function App() {
           <img className="user-filter" src={filter} alt="" />
         </div>
       )}
+
+      <div>
+        <CustomModal
+          openModal={openModal}
+          closeModal={closeModal}
+          modalIsOpen={modalIsOpen}
+        />
+      </div>
 
       <div className="container-buttons">
         <input
@@ -99,6 +119,9 @@ export default function App() {
         </button>
         <button className="button-yellow" onClick={onDownload}>
           Aplicar
+        </button>
+        <button className="button-yellow" onClick={openModal}>
+          Abrir Modal
         </button>
         <button className="button-green" onClick={handleDownloadImage}>
           Download
