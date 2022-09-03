@@ -1,11 +1,13 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 import "./App.css";
+import html2canvas from "html2canvas";
 
 import Cropper from "react-easy-crop";
 import Button from "@mui/material/Button";
 
-import { generateDownload } from "./utils/cropImage";
 import getCroppedImg from "./utils/cropImage";
+
+import filter from "./assets/logo.png";
 
 export default function App() {
   const inputRef = React.useRef();
@@ -32,13 +34,30 @@ export default function App() {
     }
   };
 
+  const printRef = React.useRef();
+
+  const handleDownloadImage = async () => {
+    const element = printRef.current;
+    const canvas = await html2canvas(element);
+
+    const data = canvas.toDataURL("image/jpg");
+    const link = document.createElement("a");
+
+    if (typeof link.download === "string") {
+      link.href = data;
+      link.download = "image.jpg";
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      window.open(data);
+    }
+  };
+
   const onDownload = async () => {
     const result = await getCroppedImg(image, croppedArea);
     setCroppedImg(result);
-  };
-
-  const handle = () => {
-    generateDownload(croppedImg);
   };
 
   return (
@@ -61,7 +80,10 @@ export default function App() {
         ) : null}
       </div>
 
-      <img className="image" src={croppedImg} alt="" />
+      <div ref={printRef} className="container-preview">
+        <img className="user-image" src={croppedImg} alt="" />
+        <img className="user-filter" src={filter} alt="" />
+      </div>
 
       <div className="container-buttons">
         <input
@@ -82,7 +104,11 @@ export default function App() {
         <Button variant="contained" color="secondary" onClick={onDownload}>
           Aplicar
         </Button>
-        <Button variant="contained" color="secondary" onClick={handle}>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleDownloadImage}
+        >
           Download
         </Button>
       </div>

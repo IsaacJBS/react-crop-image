@@ -21,7 +21,22 @@
   justify-content: center;
 }
 
-.image {
-  width: 100px;
+.container-preview {
+  display: flex;
+  width: 152px;
+  height: 152px;
+}
+
+.user-image {
+  width: 152px;
+  height: 152px;
+}
+
+.user-filter {
+  width: 152px;
   height: 100px;
+
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
 }
