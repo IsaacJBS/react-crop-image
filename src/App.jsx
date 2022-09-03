@@ -1,24 +1,23 @@
-import React from "react";
+import { useRef, useState } from "react";
 import "./App.css";
-import html2canvas from "html2canvas";
 
+import html2canvas from "html2canvas";
 import Cropper from "react-easy-crop";
-import Button from "@mui/material/Button";
 
 import getCroppedImg from "./utils/cropImage";
 
 import filter from "./assets/logo.png";
 
 export default function App() {
-  const inputRef = React.useRef();
+  const inputRef = useRef();
 
   const triggerFileSelectPopup = () => inputRef.current.click();
 
-  const [image, setImage] = React.useState(null);
-  const [croppedArea, setCroppedArea] = React.useState(null);
-  const [crop, setCrop] = React.useState({ x: 0, y: 0 });
-  const [zoom, setZoom] = React.useState(1);
-  const [croppedImg, setCroppedImg] = React.useState(null);
+  const [image, setImage] = useState(null);
+  const [croppedArea, setCroppedArea] = useState(null);
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [croppedImg, setCroppedImg] = useState(null);
 
   const onCropComplete = (croppedAreaPercentage, croppedAreaPixels) => {
     setCroppedArea(croppedAreaPixels);
@@ -34,7 +33,7 @@ export default function App() {
     }
   };
 
-  const printRef = React.useRef();
+  const printRef = useRef();
 
   const handleDownloadImage = async () => {
     const element = printRef.current;
@@ -56,8 +55,8 @@ export default function App() {
   };
 
   const onDownload = async () => {
-    const result = await getCroppedImg(image, croppedArea);
-    setCroppedImg(result);
+    const croppedImage = await getCroppedImg(image, croppedArea);
+    setCroppedImg(croppedImage);
   };
 
   return (
