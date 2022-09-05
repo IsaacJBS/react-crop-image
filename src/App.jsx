@@ -104,22 +104,24 @@ export default function App() {
             </div>
           )}
 
-          <input
-            type="file"
-            accept="image/*"
-            ref={inputRef}
-            onChange={onSelectFile}
-            style={{ display: "none" }}
-          />
-          <button className="button-black" onClick={triggerFileSelectPopup}>
-            Escolher
-          </button>
-          <button className="button-yellow" onClick={onDownload}>
-            Aplicar
-          </button>
-          <button className="button-green" onClick={handleDownloadImage}>
-            Download
-          </button>
+          <div className="container-buttons">
+            <input
+              type="file"
+              accept="image/*"
+              ref={inputRef}
+              onChange={onSelectFile}
+              style={{ display: "none" }}
+            />
+            <button className="button-black" onClick={triggerFileSelectPopup}>
+              Escolher foto
+            </button>
+            <button className="button-yellow" onClick={onDownload}>
+              Aplicar filtro
+            </button>
+            <button className="button-green" onClick={handleDownloadImage}>
+              Baixar foto
+            </button>
+          </div>
         </CustomModal>
       </div>
 
