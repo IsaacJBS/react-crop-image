@@ -73,58 +73,59 @@ export default function App() {
 
   return (
     <div className="container">
-      {image && (
-        <div className="container-cropper">
-          <>
-            <div className="cropper">
-              <Cropper
-                image={image}
-                crop={crop}
-                zoom={zoom}
-                aspect={1}
-                onCropChange={setCrop}
-                onZoomChange={setZoom}
-                onCropComplete={onCropComplete}
-              />
-            </div>
-          </>
-        </div>
-      )}
-
-      {croppedImg && (
-        <div ref={printRef} className="container-preview">
-          <img className="user-image" src={croppedImg} alt="" />
-          <img className="user-filter" src={filter} alt="" />
-        </div>
-      )}
-
       <div>
         <CustomModal
           openModal={openModal}
           closeModal={closeModal}
           modalIsOpen={modalIsOpen}
-        />
+        >
+          {image && (
+            <div className="container-cropper">
+              <>
+                <div className="cropper">
+                  <Cropper
+                    image={image}
+                    crop={crop}
+                    zoom={zoom}
+                    aspect={1}
+                    onCropChange={setCrop}
+                    onZoomChange={setZoom}
+                    onCropComplete={onCropComplete}
+                  />
+                </div>
+              </>
+            </div>
+          )}
+
+          {croppedImg && (
+            <div ref={printRef} className="container-preview">
+              <img className="user-image" src={croppedImg} alt="" />
+              <img className="user-filter" src={filter} alt="" />
+            </div>
+          )}
+
+          <input
+            type="file"
+            accept="image/*"
+            ref={inputRef}
+            onChange={onSelectFile}
+            style={{ display: "none" }}
+          />
+          <button className="button-black" onClick={triggerFileSelectPopup}>
+            Escolher
+          </button>
+          <button className="button-yellow" onClick={onDownload}>
+            Aplicar
+          </button>
+          <button className="button-green" onClick={handleDownloadImage}>
+            Download
+          </button>
+        </CustomModal>
       </div>
 
       <div className="container-buttons">
-        <input
-          type="file"
-          accept="image/*"
-          ref={inputRef}
-          onChange={onSelectFile}
-          style={{ display: "none" }}
-        />
-        <button className="button-black" onClick={triggerFileSelectPopup}>
-          Escolher
-        </button>
-        <button className="button-yellow" onClick={onDownload}>
-          Aplicar
-        </button>
         <button className="button-yellow" onClick={openModal}>
           Abrir Modal
-        </button>
-        <button className="button-green" onClick={handleDownloadImage}>
-          Download
         </button>
       </div>
     </div>

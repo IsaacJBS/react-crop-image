@@ -4,7 +4,7 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
-const CustomModal = ({ openModal, closeModal, modalIsOpen }) => {
+const CustomModal = ({ closeModal, modalIsOpen, children }) => {
   return (
     <div>
       <Modal
@@ -13,14 +13,7 @@ const CustomModal = ({ openModal, closeModal, modalIsOpen }) => {
         contentLabel="Example Modal"
       >
         <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
+        {children}
       </Modal>
     </div>
   );
