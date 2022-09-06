@@ -1,5 +1,6 @@
 :root {
   --user-image-size: 19.2rem;
+  --margin-button: 0 1rem;
 }
 
 button {
@@ -15,8 +16,6 @@ button {
 
   border-radius: 5px;
 
-  margin: 0 1rem;
-
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -31,6 +30,8 @@ button {
 .button-black {
   background-color: #000;
   color: #fff;
+
+  margin: var(--margin-button);
 }
 
 .button-black:hover {
@@ -39,6 +40,8 @@ button {
 
 .button-yellow {
   background-color: #f18805;
+
+  margin: var(--margin-button);
 }
 
 .button-yellow:hover {
@@ -48,6 +51,8 @@ button {
 .button-green {
   background-color: #008000;
   color: #fff;
+
+  margin: var(--margin-button);
 }
 
 .button-green:hover {
@@ -61,7 +66,7 @@ button {
 .container-cropper {
   width: 90%;
   height: 90%;
-  padding: 10px;
+  padding: 1rem;
 }
 
 .cropper {
