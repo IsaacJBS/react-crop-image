@@ -66,64 +66,66 @@ export default function App() {
     }
   };
 
-  const onDownload = async () => {
+  const handleApplyFilter = async () => {
     const croppedImage = await getCroppedImg(image, croppedArea);
     setCroppedImg(croppedImage);
   };
 
   return (
     <div className="container">
-      <div>
-        <CustomModal
-          openModal={openModal}
-          closeModal={closeModal}
-          modalIsOpen={modalIsOpen}
-        >
+      <CustomModal
+        openModal={openModal}
+        closeModal={closeModal}
+        modalIsOpen={modalIsOpen}
+      >
+        {image && (
+          <div className="container-cropper">
+            <>
+              <div className="cropper">
+                <Cropper
+                  image={image}
+                  crop={crop}
+                  zoom={zoom}
+                  aspect={1}
+                  onCropChange={setCrop}
+                  onZoomChange={setZoom}
+                  onCropComplete={onCropComplete}
+                />
+              </div>
+            </>
+          </div>
+        )}
+
+        {croppedImg && (
+          <div ref={printRef} className="container-preview">
+            <img className="user-image" src={croppedImg} alt="" />
+            <img className="user-filter" src={filter} alt="" />
+          </div>
+        )}
+
+        <div className="container-action-buttons">
+          <input
+            type="file"
+            accept="image/*"
+            ref={inputRef}
+            onChange={onSelectFile}
+            style={{ display: "none" }}
+          />
+          <button className="button-black" onClick={triggerFileSelectPopup}>
+            Escolher foto
+          </button>
           {image && (
-            <div className="container-cropper">
-              <>
-                <div className="cropper">
-                  <Cropper
-                    image={image}
-                    crop={crop}
-                    zoom={zoom}
-                    aspect={1}
-                    onCropChange={setCrop}
-                    onZoomChange={setZoom}
-                    onCropComplete={onCropComplete}
-                  />
-                </div>
-              </>
-            </div>
-          )}
-
-          {croppedImg && (
-            <div ref={printRef} className="container-preview">
-              <img className="user-image" src={croppedImg} alt="" />
-              <img className="user-filter" src={filter} alt="" />
-            </div>
-          )}
-
-          <div className="container-buttons">
-            <input
-              type="file"
-              accept="image/*"
-              ref={inputRef}
-              onChange={onSelectFile}
-              style={{ display: "none" }}
-            />
-            <button className="button-black" onClick={triggerFileSelectPopup}>
-              Escolher foto
-            </button>
-            <button className="button-yellow" onClick={onDownload}>
+            <button className="button-yellow" onClick={handleApplyFilter}>
               Aplicar filtro
             </button>
+          )}
+          {croppedImg && (
             <button className="button-green" onClick={handleDownloadImage}>
               Baixar foto
             </button>
-          </div>
-        </CustomModal>
-      </div>
+          )}
+        </div>
+      </CustomModal>
 
       <div className="container-buttons">
         <button className="button-yellow" onClick={openModal}>
