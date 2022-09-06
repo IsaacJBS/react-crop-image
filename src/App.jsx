@@ -4,7 +4,7 @@ import "./App.css";
 import html2canvas from "html2canvas";
 import Cropper from "react-easy-crop";
 
-import CustomModal from "./components/CustomModal";
+import CustomModal from "./components/CustomModal/CustomModal";
 
 import getCroppedImg from "./utils/cropImage";
 
@@ -12,8 +12,6 @@ import filter from "./assets/logo.png";
 
 export default function App() {
   const inputRef = useRef();
-
-  const triggerFileSelectPopup = () => inputRef.current.click();
 
   const [image, setImage] = useState(null);
   const [croppedArea, setCroppedArea] = useState(null);
@@ -23,13 +21,19 @@ export default function App() {
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  function openModal() {
+  const openModal = () => {
     setIsOpen(true);
-  }
+  };
 
-  function closeModal() {
+  const closeModal = () => {
     setIsOpen(false);
-  }
+    setCroppedImg(null);
+  };
+
+  const triggerFileSelectPopup = () => {
+    inputRef.current.click();
+    setCroppedImg(null);
+  };
 
   const onCropComplete = (croppedAreaPercentage, croppedAreaPixels) => {
     setCroppedArea(croppedAreaPixels);
@@ -41,7 +45,6 @@ export default function App() {
       reader.readAsDataURL(event.target.files[0]);
       reader.addEventListener("load", () => {
         setImage(reader.result);
-        setCroppedImg(null);
       });
     }
   };
@@ -57,7 +60,7 @@ export default function App() {
 
     if (typeof link.download === "string") {
       link.href = data;
-      link.download = "image.jpg";
+      link.download = "apoio.jpg";
 
       document.body.appendChild(link);
       link.click();
@@ -123,15 +126,15 @@ export default function App() {
           )}
           {croppedImg && (
             <button className="button-green" onClick={handleDownloadImage}>
-              Baixar foto
+              Salvar foto
             </button>
           )}
         </div>
       </CustomModal>
 
-      <div className="container-buttons">
+      <div className="action-button">
         <button className="button-yellow" onClick={openModal}>
-          Abrir Modal
+          Adicionar filtro
         </button>
       </div>
     </div>
