@@ -116,9 +116,11 @@ export default function App() {
             onChange={onSelectFile}
             style={{ display: "none" }}
           />
-          <button className="button-black" onClick={triggerFileSelectPopup}>
-            {croppedImg ? "Mudar foto" : "Escolher foto"}
-          </button>
+          {!image && (
+            <button className="button-black" onClick={triggerFileSelectPopup}>
+              {croppedImg ? "Trocar foto" : "Escolher foto"}
+            </button>
+          )}
           {image && (
             <button className="button-yellow" onClick={handleApplyFilter}>
               Aplicar filtro
