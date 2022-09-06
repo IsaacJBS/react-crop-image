@@ -76,3 +76,10 @@ button {
   z-index: 1;
   margin-top: 10rem;
 }
+
+@media (max-width: 600px) {
+  .container-cropper {
+    width: 90%;
+    height: 50%;
+  }
+}

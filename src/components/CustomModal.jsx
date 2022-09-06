@@ -13,9 +13,10 @@ const CustomModal = ({ closeModal, modalIsOpen, children }) => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Example Modal"
+        className="modal"
       >
         <button onClick={closeModal}>close</button>
-        <div className="modal">{children}</div>
+        <div className="content">{children}</div>
       </Modal>
     </div>
   );
