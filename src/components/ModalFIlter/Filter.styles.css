@@ -1,0 +1,117 @@
+:root {
+  --user-image-size: 19.2rem;
+  --margin-button: 0 1rem;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  min-width: 4rem;
+
+  padding: 0.5rem 1rem;
+
+  font-size: 1.4rem;
+
+  font-weight: bold;
+
+  border-radius: 5px;
+
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+
+.button-black {
+  background-color: #000;
+  color: #fff;
+
+  margin: var(--margin-button);
+}
+
+.button-black:hover {
+  background-color: rgb(63, 63, 63);
+}
+
+.button-yellow {
+  background-color: #f18805;
+
+  margin: var(--margin-button);
+}
+
+.button-yellow:hover {
+  background-color: #f19f05;
+}
+
+.button-green {
+  background-color: #008000;
+  color: #fff;
+
+  margin: var(--margin-button);
+}
+
+.button-green:hover {
+  background-color: #00a000;
+}
+
+.action-button {
+  border: 1px solid #000;
+}
+
+.action-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.container-cropper {
+  width: 90%;
+  height: 90%;
+  padding: 1rem;
+}
+
+.cropper {
+  height: 90%;
+  position: relative;
+}
+
+.container-buttons {
+  border: 1px solid #f5f5f5;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-preview {
+  display: flex;
+  width: var(--user-image-size);
+  height: var(--user-image-size);
+
+  margin-bottom: 2rem;
+}
+
+.user-image {
+  width: var(--user-image-size);
+  height: var(--user-image-size);
+}
+
+.filter-image {
+  width: var(--user-image-size);
+  height: 12rem;
+
+  position: absolute;
+  z-index: 1;
+  margin-top: 9rem;
+}
+
+@media (max-width: 600px) {
+  .container-cropper {
+    width: 90%;
+    height: 50%;
+  }
+}
