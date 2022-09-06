@@ -1,3 +1,7 @@
+:root {
+  --user-image-size: 15.2rem;
+}
+
 button {
   all: unset;
   cursor: pointer;
@@ -33,8 +37,8 @@ button {
 }
 
 .container-cropper {
-  width: 40%;
-  height: 60%;
+  width: 90%;
+  height: 90%;
   padding: 10px;
 }
 
@@ -53,20 +57,22 @@ button {
 
 .container-preview {
   display: flex;
-  width: 152px;
-  height: 152px;
+  width: var(--user-image-size);
+  height: var(--user-image-size);
+
+  margin-bottom: 2rem;
 }
 
 .user-image {
-  width: 152px;
-  height: 152px;
+  width: var(--user-image-size);
+  height: var(--user-image-size);
 }
 
 .user-filter {
-  width: 152px;
-  height: 100px;
+  width: var(--user-image-size);
+  height: 10rem;
 
   position: absolute;
   z-index: 1;
-  margin-top: 8rem;
+  margin-top: 7rem;
 }

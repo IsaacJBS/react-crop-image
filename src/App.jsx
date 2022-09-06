@@ -41,6 +41,7 @@ export default function App() {
       reader.readAsDataURL(event.target.files[0]);
       reader.addEventListener("load", () => {
         setImage(reader.result);
+        setCroppedImg(null);
       });
     }
   };
@@ -69,6 +70,7 @@ export default function App() {
   const handleApplyFilter = async () => {
     const croppedImage = await getCroppedImg(image, croppedArea);
     setCroppedImg(croppedImage);
+    setImage(null);
   };
 
   return (
@@ -112,7 +114,7 @@ export default function App() {
             style={{ display: "none" }}
           />
           <button className="button-black" onClick={triggerFileSelectPopup}>
-            Escolher foto
+            {croppedImg ? "Mudar foto" : "Escolher foto"}
           </button>
           {image && (
             <button className="button-yellow" onClick={handleApplyFilter}>
