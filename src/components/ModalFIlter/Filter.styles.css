@@ -91,6 +91,8 @@ button {
   display: flex;
 
   height: 100%;
+
+  background: #000;
 }
 
 .container-action-buttons {
