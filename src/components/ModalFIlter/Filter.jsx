@@ -60,7 +60,7 @@ export default function Filter({ buttonLabel }) {
 
     if (typeof link.download === "string") {
       link.href = data;
-      link.download = "now.jpg";
+      link.download = "now";
 
       document.body.appendChild(link);
       link.click();
