@@ -7,6 +7,7 @@
 
   inset: 4rem;
   border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
   overflow: auto;
   padding: 2rem;
 }
@@ -33,6 +34,12 @@
     inset: 1rem;
   }
 
+  .content {
+    padding: 13rem 0;
+  }
+}
+
+@media (max-width: 375px) {
   .content {
     padding: 2rem;
   }

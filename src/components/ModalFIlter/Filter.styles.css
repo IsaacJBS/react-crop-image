@@ -118,10 +118,23 @@ button {
   }
 
   .user-image {
-    margin-top: 6rem;
+    margin-top: 7rem;
   }
 
   .container-preview {
     height: 80%;
+  }
+}
+
+@media (max-width: 400px) {
+  .user-image {
+    margin-top: 6rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .user-image {
+    height: 21.2rem;
+    margin-top: 8rem;
   }
 }
