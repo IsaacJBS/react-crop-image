@@ -8,7 +8,7 @@ import CustomModal from "../CustomModal/CustomModal";
 
 import getCroppedImg from "../../utils/cropImage";
 
-import filter from "../../assets/logo.png";
+import filter from "../../assets/filter.png";
 
 export default function Filter({ buttonLabel }) {
   const inputRef = useRef();

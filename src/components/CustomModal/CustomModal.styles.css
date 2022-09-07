@@ -11,7 +11,7 @@
   overflow: auto;
   border-radius: 4px;
   outline: none;
-  padding: 20px;
+  padding: 2rem;
 }
 
 .content {
@@ -21,11 +21,13 @@
   align-items: center;
 
   position: absolute;
-  inset: 40px;
+  inset: 2rem;
   overflow: auto;
   border-radius: 4px;
   outline: none;
-  padding: 20px;
+  padding: 2rem;
+
+  margin-top: 4rem;
 }
 
 @media (max-width: 600px) {
