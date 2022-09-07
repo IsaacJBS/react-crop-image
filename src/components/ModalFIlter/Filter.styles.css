@@ -89,6 +89,8 @@ button {
 
 .container-preview {
   display: flex;
+
+  height: 100%;
 }
 
 .container-action-buttons {
@@ -99,7 +101,7 @@ button {
   width: var(--user-image-size);
   height: var(--user-image-size);
 
-  margin-top: 1rem;
+  margin-top: 4rem;
 }
 
 .filter-image {
