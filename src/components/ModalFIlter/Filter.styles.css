@@ -114,7 +114,7 @@ button {
 @media (max-width: 600px) {
   .container-cropper {
     width: 90%;
-    height: 50%;
+    height: 70rem;
   }
 
   .user-image {
@@ -128,13 +128,13 @@ button {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 590px) {
   .user-image {
     margin-top: 6rem;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 374px) {
   .user-image {
     margin-top: 8rem;
   }
