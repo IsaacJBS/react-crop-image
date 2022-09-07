@@ -8,7 +8,11 @@ export default function App() {
   return (
     <div className="App">
       <header className="header">
-        <img className="header-logo" src={nowLogo} alt="" />
+        <img
+          className="header-logo"
+          src={nowLogo}
+          alt="Now escrito em branco, com a letra O colorida como a bandeira LGBTQIA+"
+        />
       </header>
       <main className="main">
         <h2>Gere a sua foto de perfil com o NOW 🤘</h2>

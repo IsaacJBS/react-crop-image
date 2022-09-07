@@ -103,8 +103,16 @@ export default function Filter({ buttonLabel }) {
 
         {croppedImg && (
           <div ref={printRef} className="container-preview">
-            <img className="user-image" src={croppedImg} alt="" />
-            <img className="filter-image" src={filter} alt="" />
+            <img
+              className="user-image"
+              src={croppedImg}
+              alt="Foto do usuário"
+            />
+            <img
+              className="filter-image"
+              src={filter}
+              alt="Filtro do rock in rio"
+            />
           </div>
         )}
 
