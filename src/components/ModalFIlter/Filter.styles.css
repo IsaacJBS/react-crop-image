@@ -116,4 +116,12 @@ button {
     width: 90%;
     height: 50%;
   }
+
+  .user-image {
+    margin-top: 6rem;
+  }
+
+  .container-preview {
+    height: 80%;
+  }
 }
