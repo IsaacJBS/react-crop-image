@@ -119,6 +119,8 @@ button {
 
   .user-image {
     margin-top: 7rem;
+
+    height: 21.2rem;
   }
 
   .container-preview {
@@ -134,7 +136,6 @@ button {
 
 @media (max-width: 360px) {
   .user-image {
-    height: 21.2rem;
     margin-top: 8rem;
   }
 }
