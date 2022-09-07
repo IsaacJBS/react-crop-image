@@ -1,5 +1,5 @@
 :root {
-  --user-image-size: 19.2rem;
+  --user-image-size: 20.2rem;
   --margin-button: 0 1rem;
 }
 
@@ -89,10 +89,6 @@ button {
 
 .container-preview {
   display: flex;
-  /* width: var(--user-image-size);
-  height: var(--user-image-size); */
-
-  margin-top: 4rem;
 }
 
 .container-action-buttons {
@@ -102,15 +98,15 @@ button {
 .user-image {
   width: var(--user-image-size);
   height: var(--user-image-size);
+
+  margin-top: 1rem;
 }
 
 .filter-image {
   width: var(--user-image-size);
 
-  /* position: absolute; */
-  /* z-index: 1; */
-  margin-left: -19.2rem;
-  margin-top: -6rem;
+  margin-left: -20.2rem;
+  margin-top: -1rem;
 }
 
 @media (max-width: 600px) {
