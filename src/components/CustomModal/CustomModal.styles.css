@@ -21,8 +21,6 @@
   position: absolute;
   inset: 2rem;
   overflow: auto;
-  border-radius: 4px;
-  outline: none;
   padding: 2rem;
 
   margin-top: 4rem;
