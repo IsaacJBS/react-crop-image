@@ -1,8 +1,82 @@
 .App {
-  width: 100vw;
-  height: 100vh;
   display: flex;
 
+  flex-direction: column;
+}
+
+.header {
+  width: 100vw;
+  padding: 2rem 40rem;
+
+  background-color: #000;
+}
+
+.header-logo {
+  width: 10rem;
+}
+
+.main {
+  padding: 2rem 40rem;
+}
+
+.main h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 2.8rem;
+
+  align-self: center;
+}
+
+.container-filter {
+  display: flex;
+
+  margin-top: 3rem;
+
   align-items: center;
-  justify-content: center;
+  gap: 1rem;
+
+  padding: 2rem 4rem;
+
+  border: 1px dashed black;
+}
+
+.container-filter p {
+  font-size: 1.4rem;
+}
+
+.how-to-use {
+  padding: 0 40rem;
+}
+
+.how-to-use h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 2.8rem;
+
+  margin-bottom: 3rem;
+}
+
+.how-to-use ul {
+  list-style-type: circle;
+}
+
+.how-to-use li {
+  font-family: "Inter", sans-serif;
+
+  margin-left: 4rem;
+  font-size: 1.4rem;
+
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 2rem 2rem;
+  }
+
+  .main {
+    padding: 4rem 2rem;
+  }
+
+  .how-to-use {
+    padding: 2rem 2rem;
+  }
 }
