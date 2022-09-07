@@ -101,6 +101,7 @@ button {
 
 .user-image {
   width: var(--user-image-size);
+  height: var(--user-image-size);
   margin-top: 4rem;
 }
 
@@ -119,6 +120,7 @@ button {
   .user-image {
     margin-top: 7rem;
 
+    width: 23.2rem;
     height: 23.2rem;
   }
 
