@@ -1,5 +1,5 @@
 :root {
-  --user-image-size: 25.2rem;
+  --user-image-size: 24.2rem;
   --margin-button: 0 1rem;
 }
 
@@ -107,7 +107,7 @@ button {
 .filter-image {
   width: var(--user-image-size);
 
-  margin-left: -25.2rem;
+  margin-left: -24.2rem;
 }
 
 @media (max-width: 600px) {
