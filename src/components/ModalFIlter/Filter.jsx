@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Filter.styles.css";
 
 import html2canvas from "html2canvas";
@@ -19,14 +19,20 @@ export default function Filter({ buttonLabel }) {
   const [zoom, setZoom] = useState(1);
   const [croppedImg, setCroppedImg] = useState(null);
 
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => {
-    setIsOpen(true);
+    setModalIsOpen(true);
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      triggerFileSelectPopup();
+    }, 200);
+  }, [modalIsOpen]);
+
   const closeModal = () => {
-    setIsOpen(false);
+    setModalIsOpen(false);
     setCroppedImg(null);
   };
 
