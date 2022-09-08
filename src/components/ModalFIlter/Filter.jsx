@@ -144,7 +144,7 @@ export default function Filter({ buttonLabel }) {
       <div>
         <input
           type="file"
-          accept="image/*"
+          accept=".jpg, .jpeg, .png"
           ref={inputRef}
           onChange={onSelectFile}
           style={{ display: "none" }}
