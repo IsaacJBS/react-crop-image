@@ -26,7 +26,9 @@ export default function Filter({ buttonLabel }) {
   };
 
   useEffect(() => {
-    openModal();
+    if (image) {
+      openModal();
+    }
   }, [image]);
 
   const closeModal = () => {
