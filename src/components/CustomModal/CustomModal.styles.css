@@ -36,9 +36,3 @@
     padding: 8rem 0;
   }
 }
-
-@media (max-width: 375px) {
-  .content {
-    padding: 2rem;
-  }
-}

@@ -1,5 +1,6 @@
 :root {
-  --user-image-size: 23.2rem;
+  /* --user-image-size: 28.2rem; */
+  --user-image-size: 33.2rem;
   --margin-button: 0 1rem;
 }
 
@@ -87,31 +88,32 @@ button {
   justify-content: center;
 }
 
+.container-action-buttons {
+  position: fixed;
+  bottom: 5rem;
+}
+
 .container-preview {
   display: flex;
 
-  height: 100%;
+  height: 50rem;
 
-  margin-top: -6rem;
+  margin-top: 5rem;
 
   background: #000;
 }
 
-.container-action-buttons {
-  position: absolute;
-  bottom: 1rem;
-}
-
 .user-image {
   width: var(--user-image-size);
-  height: var(--user-image-size);
-  margin-top: 4rem;
+  height: calc(var(--user-image-size) - 11rem);
+  margin-top: 10.5rem;
 }
 
 .filter-image {
   width: var(--user-image-size);
+  height: 60rem;
 
-  margin-left: -23.2rem;
+  margin-left: -33.2rem;
 }
 
 @media (max-width: 600px) {
@@ -120,26 +122,37 @@ button {
     height: 70rem;
   }
 
-  .user-image {
-    margin-top: 7rem;
+  .container-preview {
+    margin-top: -3rem;
+  }
 
-    width: 23.2rem;
-    height: 23.2rem;
+  .user-image {
+    margin-top: 8rem;
+
+    width: var(--user-image-size);
+    /* width: 23.2rem;
+    height: 23.2rem; */
   }
 
   .container-preview {
-    height: 80%;
+    height: 60rem;
   }
 }
 
 @media (max-width: 590px) {
   .user-image {
-    margin-top: 6rem;
+    margin-top: 8rem;
   }
 }
 
 @media (max-width: 374px) {
   .user-image {
-    margin-top: 8rem;
+    margin-top: 9rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .container-preview {
+    margin-top: 0rem;
   }
 }

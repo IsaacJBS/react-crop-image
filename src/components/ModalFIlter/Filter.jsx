@@ -97,7 +97,7 @@ export default function Filter({ buttonLabel }) {
                   image={image}
                   crop={crop}
                   zoom={zoom}
-                  aspect={1}
+                  aspect={2 / 1}
                   onCropChange={setCrop}
                   onZoomChange={setZoom}
                   onCropComplete={onCropComplete}
