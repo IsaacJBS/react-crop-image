@@ -122,6 +122,7 @@ export default function Filter({ buttonLabel }) {
           </div>
         )}
 
+        {croppedImg && <h1 style={{ color: "red" }}>Imagem subiu</h1>}
         <div className="container-action-buttons">
           {!image && (
             <button className="action-button" onClick={triggerFileSelectPopup}>
