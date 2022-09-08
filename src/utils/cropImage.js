@@ -57,6 +57,6 @@ export default async function getCroppedImg(imageSrc, pixelCrop, rotation = 0) {
 	);
 
 	// As Base64 string
-	return canvas.toDataURL("image/jpeg");
+	return canvas.toDataURL("image/webp");
 	// return canvas;
 }
