@@ -26,10 +26,8 @@ export default function Filter({ buttonLabel }) {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      triggerFileSelectPopup();
-    }, 200);
-  }, [modalIsOpen]);
+    openModal();
+  }, [image]);
 
   const closeModal = () => {
     setModalIsOpen(false);
@@ -123,13 +121,6 @@ export default function Filter({ buttonLabel }) {
         )}
 
         <div className="container-action-buttons">
-          <input
-            type="file"
-            accept="image/*"
-            ref={inputRef}
-            onChange={onSelectFile}
-            style={{ display: "none" }}
-          />
           {!image && (
             <button className="button-black" onClick={triggerFileSelectPopup}>
               {croppedImg ? "Trocar foto" : "Escolher foto"}
@@ -149,7 +140,14 @@ export default function Filter({ buttonLabel }) {
       </CustomModal>
 
       <div>
-        <button className="action-button" onClick={openModal}>
+        <input
+          type="file"
+          accept="image/*"
+          ref={inputRef}
+          onChange={onSelectFile}
+          style={{ display: "none" }}
+        />
+        <button className="action-button" onClick={triggerFileSelectPopup}>
           {buttonLabel}
         </button>
       </div>
