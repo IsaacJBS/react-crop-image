@@ -124,7 +124,7 @@ export default function Filter({ buttonLabel }) {
 
         <div className="container-action-buttons">
           {!image && (
-            <button className="button-black" onClick={triggerFileSelectPopup}>
+            <button className="action-button" onClick={triggerFileSelectPopup}>
               {croppedImg ? "Trocar foto" : "Escolher foto"}
             </button>
           )}

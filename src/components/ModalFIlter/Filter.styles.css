@@ -1,6 +1,6 @@
 :root {
   /* --user-image-size: 28.2rem; */
-  --user-image-size: 33.2rem;
+  --user-image-size: 35.2rem;
   --margin-button: 0 1rem;
 }
 
@@ -29,8 +29,10 @@ button {
 }
 
 .button-black {
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
+
+  border: 1px solid #000;
 
   margin: var(--margin-button);
 }
@@ -61,6 +63,7 @@ button {
 }
 
 .action-button {
+  background-color: #fff;
   border: 1px solid #000;
 }
 
@@ -113,7 +116,7 @@ button {
   width: var(--user-image-size);
   height: 60rem;
 
-  margin-left: -33.2rem;
+  margin-left: -35.2rem;
 }
 
 @media (max-width: 600px) {
