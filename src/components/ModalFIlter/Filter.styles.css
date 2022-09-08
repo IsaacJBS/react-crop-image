@@ -96,7 +96,8 @@ button {
 }
 
 .container-action-buttons {
-  margin-top: 2rem;
+  position: absolute;
+  bottom: 1rem;
 }
 
 .user-image {
